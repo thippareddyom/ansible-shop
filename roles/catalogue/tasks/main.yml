@@ -7,7 +7,7 @@
   ansible.builtin.copy:
     src: mongo.repo
     dest: /etc/yum.repos.d/mongo.repo
-    state: present
+    
 
 - name: update mongodb config file listen
   ansible.builtin.replace:
