@@ -1,0 +1,25 @@
+- name: include common role
+  ansible.builtin.include_role:
+    name:  common
+    tasks_from:  nodejs
+
+- name: copy mongo db
+  ansible.builtin.copy:
+    src: mongo.repo
+    dest: /etc/yum.repos.d/mongo.repo
+    state: present
+
+- name: update mongodb config file listen
+  ansible.builtin.replace:
+    path: /etc/mongod.conf
+    regexp: '127.0.0.1'
+    replace: '0.0.0.0' 
+
+- name: start mongo db service
+  ansible.builtin.systemd_service:
+    name: mongod
+    state: restarted
+    enabled: yes
+
+- name: load master data
+  ansible.builtin.shell: mongosh --host mongodb-dev.kvsr.online </app/db/master-data.js
