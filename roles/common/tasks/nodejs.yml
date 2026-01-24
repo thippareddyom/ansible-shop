@@ -14,7 +14,7 @@
   ansible.builtin.shell: 
     npm install
   args:
-    chdir: app/
+    chdir: /app
 
 - name: include systemd set up file
   ansible.builtin.include_tasks:
