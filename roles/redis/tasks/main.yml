@@ -1,1 +1,15 @@
-- name: 
+- name: disable default redis and enable 7 version
+  ansible.builtin.shell:
+    dnf module disable redis -y ; dnf module enable redis:7 -y
+
+- name: install redis
+  ansible.legacy.dnf:
+    name: redis
+    state: present
+
+- name: update redis config
+  ansible.builtin.replace:
+    regexp: '127.0.0.1''
+    replace: '0.0.0.0'
+    path: /etc/redis/redis.conf
+
