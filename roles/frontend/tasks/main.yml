@@ -6,3 +6,13 @@
   ansible.builtin.shell:
     dnf module enable nginx:1.24 -y
 
+- name: install nginx
+  ansible.builtin.dnf:
+    name: nginx
+    state: present
+
+- name: start nginx
+  ansible.builtin.systemd_service:
+    name: nginx
+    state: started
+
