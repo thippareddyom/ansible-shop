@@ -3,15 +3,16 @@
     name:  common
     tasks_from:  nodejs
 
-- name: install mongo db
-  ansible.builtin.dnf:
-    name: mongodb-org
-    state: present
 - name: copy mongo db
   ansible.builtin.copy:
     src: mongo.repo
     dest: /etc/yum.repos.d/mongo.repo
-    
+
+
+- name: install mongo db
+  ansible.builtin.dnf:
+    name: mongodb-org
+    state: present    
 
 - name: update mongodb config file listen
   ansible.builtin.replace:
