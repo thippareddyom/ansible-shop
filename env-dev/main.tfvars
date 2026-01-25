@@ -1,4 +1,20 @@
-instance = {
+db_instances = {
+    mysql={
+        ami          =   "ami-0220d79f3f480ecf5"
+        instance_type=  "t3.micro"
+    }
+    rabbitmq={
+        ami          =   "ami-0220d79f3f480ecf5"
+        instance_type=  "t3.micro"
+    }
+    mongodb={
+        ami          =   "ami-0220d79f3f480ecf5"
+        instance_type=  "t3.micro"
+    }
+    redis={
+        ami          =   "ami-0220d79f3f480ecf5"
+        instance_type=  "t3.micro"
+    }
     # frontend= {
     #     ami          =   "ami-0220d79f3f480ecf5"
     #     instance_type=  "t3.micro"
@@ -7,14 +23,7 @@ instance = {
     #     ami          =   "ami-0220d79f3f480ecf5"
     #     instance_type=  "t3.micro"
     # }
-    # mongodb={
-    #     ami          =   "ami-0220d79f3f480ecf5"
-    #     instance_type=  "t3.micro"
-    # }
-    redis={
-        ami          =   "ami-0220d79f3f480ecf5"
-        instance_type=  "t3.micro"
-    }
+    
     # cart={
     #     ami          =   "ami-0220d79f3f480ecf5"
     #     instance_type=  "t3.micro"
@@ -27,14 +36,7 @@ instance = {
     #     ami          =   "ami-0220d79f3f480ecf5"
     #     instance_type=  "t3.micro"
     # }
-    # mysql={
-    #     ami          =   "ami-0220d79f3f480ecf5"
-    #     instance_type=  "t3.micro"
-    # }
-    # rabbitmq={
-    #     ami          =   "ami-0220d79f3f480ecf5"
-    #     instance_type=  "t3.micro"
-    # }
+   
     # payment={
     #     ami          =   "ami-0220d79f3f480ecf5"
     #     instance_type=  "t3.micro"
