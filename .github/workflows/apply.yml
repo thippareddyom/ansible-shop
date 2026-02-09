@@ -1,0 +1,26 @@
+name: terraform apply
+on:
+  workflow_dispatch
+jobs:
+  Terraform-Apply:
+    runs-on: slef-hosted
+    steps:
+      - name: checkout repo code
+        uses: actions/checkout@v4
+      - name: apply
+        run: |
+          terraform init -backend-config=env-dev/state.tfvars
+          terraform apply -var-file=env-dev/main.tfvars -auto-approve
+    
+  Helm-Install:
+    runs-on: self-hosted
+    steps:
+      - name: checkout code
+        uses: actions/checkout@v4
+        with:
+          repository: thippareddyom/roboshop-helm
+      - name: terraform apply
+        run: |
+          cd helm
+          for chart in catalogue cart shipping user payment frontend; do helm upgrade -i $chart . -f env-dev/$chart.yaml; done
+          
