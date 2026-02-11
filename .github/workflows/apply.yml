@@ -10,7 +10,7 @@ jobs:
       - name: apply
         run: |
           terraform init -backend-config=env-dev/state.tfvars
-          terraform plan -var-file=env-dev/main.tfvars | tail -n 2
+          terraform plan -var-file=env-dev/main.tfvars | tail -n 4 | head -n1
     
   # Helm-Install:
   #   runs-on: self-hosted
